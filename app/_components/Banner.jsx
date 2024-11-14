@@ -8,7 +8,7 @@ const Banner = () => {
                 <h1 className='px-3 text-4xl md:text-6xl text-white mb-5 font-semibold'><span className='text-primary'>Meat cuts and </span>quality of cuts</h1>
                 <h3 className='text-white md:text-xl tracking-wide'>We offer premium quality meats and exceptional customer services at our butcher shop, ensuring the freshest cuts for your table.</h3>
             </div>
-            <div className='mt-5 border-[1px] px-6 py-3 rounded-lg'>
+            <div className='mt-5 border px-6 py-3 rounded-full flex items-center justify-center'>
                <h1 className='text-primary text-3xl font-semibold'>Shop now</h1>
             </div>
         </div>
