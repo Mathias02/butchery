@@ -9,4 +9,4 @@ const Icon = () => {
   )
 }
 
-export default Icon
+export default Iconadded
