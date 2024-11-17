@@ -7,7 +7,7 @@ const CategoryList = ({listCategory}) => {
 
 
   return (
-    <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-9 py-7 gap-3'>
+    <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 py-6 gap-1 justify-around'>
         {listCategory.map((list, index) => {
           
           return(

@@ -29,9 +29,6 @@ export default function Home() {
     {/* banner */}
     <Banner />
 
-    {/* footer */}
-    <Footer />
-
  </div>
   );
 }
