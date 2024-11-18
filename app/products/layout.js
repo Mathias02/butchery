@@ -1,6 +1,7 @@
 
 import React from 'react'
 import Icon from './_components/Icon'
+import Sidebar from './_components/Sidebar'
 
 const layout = ({children}) => {
   return (
@@ -8,9 +9,15 @@ const layout = ({children}) => {
       <div className='max-w-screen-3xl'>
          <Icon />
       </div>
-      <div>
-         {children}
-      </div>    
+      <div className='grid grid-cols-4'>
+        <div>
+            <Sidebar />
+        </div>
+        <div className='col-span-3 border'>
+          {children}
+        </div> 
+      </div>
+        
     </div>
   )
 }
