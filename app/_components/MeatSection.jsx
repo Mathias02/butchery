@@ -3,61 +3,57 @@
 
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import GlobalApi from '../_utils/GlobalApi';
 import Image from 'next/image';
+import Link from 'next/link';
+import GlobalApi from '../_utils/GlobalApi';
 
 
-const MeatSection = ({list}) => {
-    const [prod,setProd] = useState();
+const MeatSection = () => {
+    const [prod,setProd] = useState('all');
+    const [businessMeat, setBusinessMeat] = useState([]);
+    const [category, setCategory] = useState(true);
     
 
 
-    const parameter = useSearchParams();
+    const path = useSearchParams();
 
     useEffect(() =>{
-        parameter&&setProd(parameter.get('category'));
-       },[parameter]);
+         path&&setProd(path.get('category'));
+         path&&meatRange(path.get("category"));
+         console.log(path.get("category"))
+       },[path]);
+
+       const meatRange = (pro) => {
+        GlobalApi.GetProducts(pro).then(resp =>{
+        setBusinessMeat(resp?.meats)
+      })
+      }
 
 
   return (
-    <section>
-    <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-      <header>
-        <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">Range of {prod}</h2>
-      </header>
-  
-      <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {
-            list.map((item, index) => {
-                return(
-                    <li key={index}>
-                        <a href="#" className="group block overflow-hidden">
-                            <Image
-                            src={item.icon[0]?.url}
-                            alt={item.slug}
-                            width={300}
-                            height={300}
-                            className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[250px] md:w-[350px]"
-                            />
-                
-                            <div className="relative bg-white pt-3">
-                                <h3 className="text-xl text-gray-700 group-hover:underline group-hover:underline-offset-4">
-                                    {item.name}
-                                </h3>
-                    
-                                <p className="mt-2">
-                                    <span className="sr-only"> Regular Price </span>
-                                    <span className="tracking-wider text-gray-900"> £24.00 GBP </span>
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                )  
-            })
-        }    
-      </ul>
+  <div className='mt-10 flex flex-col'>
+    <div className='flex justify-center'>
+      <h1 className='text-2xl py-5 ml-9'>Range of {prod}</h1>
     </div>
-  </section>
+    <div className='flex justify-center gap-4 flex-wrap'>
+     {
+      businessMeat&&businessMeat.map((item, index) => {
+        return(
+          <Link href={'/category/category='+item.name} key={index} className='rounded-lg mb-2 px-8 border'>
+            <Image src={item.icon[0]?.url} alt={item.slug} width={200} height={180} className='object-contain h-80 rounded-lg' />
+            <div className='mt-3 px-6 py-5 md:flex justify-between w-full'>
+              <h2 className='text-gray-500 text-xl text-left font-medium'>{item.name}</h2>
+              <p>${item.price}</p>
+            </div>
+            <div className='mb-3'>
+              <p className='ml-5'>{item.description}</p>
+            </div>
+          </Link>
+        )
+      })
+     }
+    </div>
+  </div>
   
 
   )

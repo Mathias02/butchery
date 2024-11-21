@@ -6,17 +6,20 @@ import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 
-const CategoryMap = ({listCategory}) => {
-  const [item,serItem] = useState();
 
-  const params = useSearchParams()
+  const CategoryMap = ({listCategory}) => {
+  const [item,setItem] = useState();
 
-  useEffect(() =>{
-     serItem(params.get('category'));
-  },[params])
+
+  const params = useSearchParams();
+
+  useEffect(() => {
+    params&&setItem(params.get('category'));
+    },[params]);
+
 
   return (
-    <div className='border flex flex-col'>
+    <div>
         <div className='flex flex-wrap py-6 gap-2 justify-center'>
             {listCategory.map((list, index) => {
               return(
@@ -27,7 +30,7 @@ const CategoryMap = ({listCategory}) => {
                   </Link>
                 )    
             })}
-          </div>
+        </div>
     </div>
   ) 
 }
