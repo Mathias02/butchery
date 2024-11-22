@@ -1,19 +1,20 @@
 "use client"
 
 import { usePathname } from 'next/navigation'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const page = () => {
-
+const [item,setItem] = useState();
 
   const path = usePathname();
 
   useEffect(() =>{
-    console.log(path.split('/')[3])
-  },[])
+    setItem(path.split('=')[1]);
+  console.log(path.split('=')[1])
+  },[path])
 
   return (
-    <div>poiut</div>
+    <div>hello {item}</div>
   )
 }
 

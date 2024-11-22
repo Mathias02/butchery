@@ -7,24 +7,14 @@ import MeatSection from '@/app/_components/MeatSection';
 
 
 const categoryPage = () => {
-    const [categoryLists,setCategoryLists] = useState([]);
-
-
-    useEffect(() =>{
-        category();  
-    },[])
-
-    const category = () => {
-        GlobalApi.GetCategories().then(resp => {
-            setCategoryLists(resp.categories)
-        })
-    };
 
   return (
     <div>
         {/* category */}
-        <CategoryMap listCategory={categoryLists} />
+        <CategoryMap />
 
+
+        {/* products */}
         <MeatSection />
 
     </div>
