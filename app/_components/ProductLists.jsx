@@ -1,31 +1,20 @@
-
 "use client"
 
-import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import GlobalApi from '../_utils/GlobalApi';
+import { useSearchParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react'
 
+const ProductPage = ({businessItems}) => {
 
-const MeatSection = () => {
     const [prodName,setProdName] = useState('all');
-    const [businessMeat, setBusinessMeat] = useState([]);
-  
-
 
     const path = useSearchParams();
 
     useEffect(() =>{
          path&&setProdName(path.get('category'));
-         path&&meatRange(path.get("category"));
        },[path]);
-
-       const meatRange = (prodParams) => {
-        GlobalApi.GetProducts(prodParams).then(resp =>{
-        setBusinessMeat(resp?.meats)
-      })
-      }
 
 
   return (
@@ -35,16 +24,13 @@ const MeatSection = () => {
         </div>
         <div className='flex justify-center gap-4 flex-wrap'>
           {
-            businessMeat&&businessMeat.map((item, index) => {
+            businessItems&&businessItems.map((item, index) => {
               return(
-                <Link href={'/category/category='+item.name} key={index} className='rounded-lg mb-2 px-8 border'>
+                <Link href={'products'} key={index} className='rounded-lg mb-2 px-8 border'>
                   <Image src={item.icon[0]?.url} alt={item.slug} width={200} height={180} className='object-contain h-80 rounded-lg' />
-                  <div className='mt-3 px-6 py-5 md:flex justify-between w-full'>
+                  <div className='mt-3 py-5 md:flex justify-between'>
                     <h2 className='text-gray-500 text-xl text-left font-medium'>{item.name}</h2>
-                    <p>${item.price}</p>
-                  </div>
-                  <div className='mb-3'>
-                    <p className='ml-5'>{item.description}</p>
+                    <p className='text-primary'>${item.price}</p>
                   </div>
                 </Link>
               )
@@ -57,4 +43,4 @@ const MeatSection = () => {
   )
 }
 
-export default MeatSection
+export default ProductPage
