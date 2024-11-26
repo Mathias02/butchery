@@ -1,10 +1,11 @@
 import React from 'react'
-import Detailed from '../_components/Detailed'
 
 const page = () => {
   return (
     <div>
-      <Detailed />
+        <div>
+            <h1>Our contact</h1>
+        </div>
     </div>
   )
 }

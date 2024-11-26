@@ -48,9 +48,33 @@ const GetProducts = async (category) => {
   `
   const result = await request(MASTER_URL,query);
     return result;
+};
+
+ const GetProduct = async (data) => {
+
+  const query = gql `
+  
+  query Meatdetails {
+  meat(where: {slug: "`+data+`"}) {
+    category {
+      name
+    }
+    icon {
+      url
+    }
+    name
+    price
+    description
+  }
 }
+  
+  `
+  const result = await request(MASTER_URL,query);
+  return result;
+ }
 
 export default{
     GetCategories,
-    GetProducts
+    GetProducts, 
+    GetProduct
 }
