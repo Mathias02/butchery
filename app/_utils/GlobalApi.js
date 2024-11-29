@@ -30,21 +30,20 @@ const GetCategories = async () => {
 const GetProducts = async (category) => {
 
   const query = gql `
-      query products {
+    query products {
         meats(where: {category: {slug: "`+category+`"}}) {
           id
           name
           price
           slug
-          description
-          icon {
+          pics {
             url
           }
           category {
             name
           }
-        }
-      }
+  }
+}
   `
   const result = await request(MASTER_URL,query);
     return result;
@@ -54,24 +53,27 @@ const GetProducts = async (category) => {
 
   const query = gql `
   
-  query Meatdetails {
+query details {
   meat(where: {slug: "`+data+`"}) {
-    category {
-      name
-    }
-    icon {
-      url
-    }
+    
     name
     price
+    pics {
+      url
+    }
     description
+    slug
+    category {
+      slug
+    }
   }
 }
   
   `
   const result = await request(MASTER_URL,query);
   return result;
- }
+ };
+
 
 export default{
     GetCategories,

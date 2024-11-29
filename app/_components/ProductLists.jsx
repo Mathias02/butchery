@@ -26,8 +26,8 @@ const ProductPage = ({businessItems}) => {
           {
             businessItems&&businessItems.map((item, index) => {
               return(
-                <Link href={'products'} key={index} className='rounded-lg mb-2 px-8 border'>
-                  <Image src={item.icon[0]?.url} alt={item.slug} width={200} height={180} className='object-contain h-80 rounded-lg' />
+                <Link href={'/products/'+item.slug} key={index} className='rounded-lg mb-2 px-8 border'>
+                  <Image src={item.pics[0]?.url} alt={item.slug} width={200} height={180} className='object-contain h-80 rounded-lg' />
                   <div className='mt-3 py-5 md:flex justify-between'>
                     <h2 className='text-gray-500 text-xl text-left font-medium'>{item.name}</h2>
                     <p className='text-primary'>${item.price}</p>

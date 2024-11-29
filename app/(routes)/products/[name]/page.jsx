@@ -1,12 +1,32 @@
-import React from 'react'
-import Detailed from '../_components/Detailed'
+"use client"
 
-const page = () => {
+import React, { useEffect, useState } from 'react'
+import Detailed from '../_components/Detailed'
+import { usePathname } from 'next/navigation'
+import GlobalApi from '@/app/_utils/GlobalApi'
+
+const DetailedPage = () => {
+  const [piece,setPiece] = useState([]);
+
+  const params = usePathname();
+
+
+  useEffect(() => {
+    dataDetailed(params.split('/')[2])
+  },[]);
+
+  const dataDetailed = (element) => {
+    GlobalApi.GetProduct(element).then((resp) => {
+      setPiece(resp?.meat);
+      console.log(resp?.meat)
+    })
+  }
+
   return (
     <div>
-      <Detailed />
+       <Detailed piece={piece}  />
     </div>
   )
 }
 
-export default page
+export default DetailedPage
