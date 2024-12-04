@@ -30,6 +30,7 @@ const categoryPage = () => {
     const categoryTypes = () =>{
         GlobalApi.GetCategories().then((resp) =>{
             setCategoryItems(resp.categories);
+            
         })
     };
 
@@ -55,7 +56,7 @@ const categoryPage = () => {
             })}
         </div>
 
-        <ProductPage   businessItems={businessMeat} />
+       {categoryItems && <ProductPage   businessItems={businessMeat} />}
     </div>
   )
 }

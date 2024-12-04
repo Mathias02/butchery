@@ -1,32 +1,42 @@
+import { Button } from '@/components/ui/button'
+import { ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import Carts from './Carts'
+
 
 const Header = () => {
   return (
-    <div className='m-1 border-[1px] flex justify-between items-center px-7'>
-      <Link href={'/'} className='p-4 flex flex-col justify-center'>
-        <Image src='/cow-face.png' width={60} height={60} alt='logo' className=''/>
-        <h2 className='text-xs text-red-800'>Meat Shop</h2>
-      </Link>
+  <div className='flex justify-between items-center'>
       <div>
-      <Image src='/hamburger-menu.png' alt='hamburger' width={40} height={40} className='md:hidden' />
+         <div className='ml-3 py-4'>
+           <Image src='/cow-face.png' width={60} height={60} alt='logo' className='mb-2'/>
+           <h2 className='text-xs text-red-800'>Meat Shop</h2>
+         </div>
       </div>
-          <ul className='hidden md:flex gap-4 capitalize cursor-pointer'>
-              <Link href={'/'}>
-                  <li className='text-primary'>home</li>
-              </Link>
-              <Link href={'/service'}>
-                  <li className='hover:text-primary'>service</li>
-              </Link>
-              <Link href={'/partners'}>
-                  <li className='hover:text-primary'>partners</li>
-              </Link>
-              <Link href={'/contact'}>
-                  <li className='hover:text-primary'>contact</li>
-              </Link>
-          </ul>
-        </div>
+      
+      <div className='flex gap-2 items-center justify-start'>
+         
+          <Popover>
+              <PopoverTrigger asChild>
+                <div className='flex justify-end gap-2 cursor-pointer hover:bg-gray-100 hover:rounded-xl p-3'>
+                    <ShoppingCart className='w-[30px] h-[30px]'/>
+                    <label className='bg-gray-500 text-white text-xl rounded-full h-9 w-9 flex items-center justify-center'>0</label>
+                </div>
+              </PopoverTrigger>
+              <PopoverContent>
+              <Carts />
+              </PopoverContent>
+          </Popover>
+
+          <Button className='rounded-xl hover:text-white hover:bg-black'>Get started</Button>
+      </div>
+  </div>
   )
 }
 

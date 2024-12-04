@@ -11,8 +11,7 @@ const Footer = () => {
     </div>
 
     <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-primary text-lg">
-    Awesome, thanks so much! Just to let you know that the Fillet steak is divine! I braaied it on lovely Kameeldoring wood last night 
-    in the lounge 🙂 and it was simply delicious!
+    Meat production continues to be shaped by the demands of customers. The trend towards selling meat in pre-packaged cuts has increased the demand for larger breeds of cattle, better suited to producing such cuts.
     </p>
 
     <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
