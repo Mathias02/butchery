@@ -4,39 +4,39 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className='mt-1'>
-        <footer className="bg-gray-800">
+        <footer className="bg-gray-200">
   <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
     <div className="flex justify-center">
       <Image src='/animal.png' alt='logo' width={100} height={100} className='text-white' />
     </div>
 
-    <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-primary text-lg">
+    <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-black text-lg">
     Meat production continues to be shaped by the demands of customers. The trend towards selling meat in pre-packaged cuts has increased the demand for larger breeds of cattle, better suited to producing such cuts.
     </p>
 
     <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
       <li>
-        <a className="text-primary  transition hover:text-gray-700/75" href="#"> About </a>
+        <a className="text-black  transition hover:text-gray-700/75" href="#"> About </a>
       </li>
 
       <li>
-        <a className="text-primary transition hover:text-gray-700/75" href="#"> Careers </a>
+        <a className="text-black  transition hover:text-gray-700/75" href="#"> Careers </a>
       </li>
 
       <li>
-        <a className="text-primary  transition hover:text-gray-700/75" href="#"> History </a>
+        <a className="text-black   transition hover:text-gray-700/75" href="#"> History </a>
       </li>
 
       <li>
-        <a className="text-primary transition hover:text-gray-700/75" href="#"> Services </a>
+        <a className="text-black  transition hover:text-gray-700/75" href="#"> Services </a>
       </li>
 
       <li>
-        <a className="text-primary transition hover:text-gray-700/75" href="#"> Projects </a>
+        <a className="text-black transition hover:text-gray-700/75" href="#"> Projects </a>
       </li>
 
       <li>
-        <a className="text-primary  transition hover:text-gray-700/75" href="#"> Blog </a>
+        <a className="text-black   transition hover:text-gray-700/75" href="#"> Blog </a>
       </li>
     </ul>
 
@@ -46,7 +46,7 @@ const Footer = () => {
           href="#"
           rel="noreferrer"
           target="_blank"
-          className="text-white  transition hover:text-gray-700/75"
+          className="text-black  transition hover:text-gray-700/75"
         >
           <span className="sr-only">Facebook</span>
           <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -64,7 +64,7 @@ const Footer = () => {
           href="#"
           rel="noreferrer"
           target="_blank"
-          className="text-white  transition hover:text-gray-700/75"
+          className="text-black  transition hover:text-gray-700/75"
         >
           <span className="sr-only">Instagram</span>
           <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -82,7 +82,7 @@ const Footer = () => {
           href="#"
           rel="noreferrer"
           target="_blank"
-          className="text-white  transition hover:text-gray-700/75"
+          className="text-black  transition hover:text-gray-700/75"
         >
           <span className="sr-only">Twitter</span>
           <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -98,7 +98,7 @@ const Footer = () => {
           href="#"
           rel="noreferrer"
           target="_blank"
-          className="text-white transition hover:text-gray-700/75"
+          className="text-black transition hover:text-gray-700/75"
         >
           <span className="sr-only">GitHub</span>
           <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -116,7 +116,7 @@ const Footer = () => {
           href="#"
           rel="noreferrer"
           target="_blank"
-          className="text-white transition hover:text-gray-700/75"
+          className="text-black transition hover:text-gray-700/75"
         >
           <span className="sr-only">Dribbble</span>
           <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

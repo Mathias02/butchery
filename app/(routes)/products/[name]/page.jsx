@@ -12,13 +12,12 @@ const DetailedPage = () => {
 
 
   useEffect(() => {
-    dataDetailed(params.split('/')[2])
+    dataDetailed(params.split('/')[2]);
   },[]);
 
   const dataDetailed = (element) => {
     GlobalApi.GetProduct(element).then((resp) => {
       setPiece(resp?.meat);
-      console.log(resp?.meat)
     })
   }
 

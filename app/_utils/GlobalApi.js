@@ -74,9 +74,49 @@ query details {
   return result;
  };
 
+ const AddToCarts = async (data) =>{
+ 
+  const query = gql ` 
+           mutation AddMeatToCarts {
+                createMeatCart(
+                  data: {name: "`+data.name+`", description: "`+data.description+`", price: `+data.price+`, pics: {create: {uploadUrl: "`+data.pics+`"}}}
+                ) {
+                  id
+                }
+                publishManyMeatCarts(to: PUBLISHED) {
+                  count
+                }
+              }
+  `
+  const result = await request(MASTER_URL,query);
+  return result;
+
+ };
+
+ const CartItems = async() => {
+
+  const query = gql `
+          query CartItems {
+          meatCarts {
+            name
+            pics {
+              url
+            }
+            price
+            description
+          }
+        }
+          
+  `
+  const result = await request(MASTER_URL,query);
+  return result;
+ }
+
 
 export default{
     GetCategories,
     GetProducts, 
-    GetProduct
+    GetProduct,
+    AddToCarts,
+    CartItems
 }

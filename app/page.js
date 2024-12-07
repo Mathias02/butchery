@@ -6,11 +6,13 @@ export default function Home() {
 
   return (
  <div>
-  {/* banner */}
+  
+    {/* banner */}
     <Banner />
 
     {/* section */}
     <Section />
+
  </div>
   );
 }

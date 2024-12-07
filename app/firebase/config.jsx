@@ -6,16 +6,16 @@ import {getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_AUTH_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_APP_ID
+  authDomain: "meatauth.firebaseapp.com",
+  projectId: "meatauth",
+  storageBucket: "meatauth.firebasestorage.app",
+  messagingSenderId:"43388532217",
+  appId:"1:43388532217:web:e4f5144c276dedc2593928"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const Auth = getAuth(app)
+export const auth = getAuth(app)
 
 
 
